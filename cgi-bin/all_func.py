@@ -4,7 +4,7 @@ import requests
 
 def create_new_joke(username, joke):
     import sqlite3
-    db_path = "c:/REST - API/db_autoten.db"
+    db_path = "c:/REST - API/joke_database.db"
     if joke != "Не задано":
         username_data_tuple = (username, joke)
         con = sqlite3.connect(db_path)
@@ -22,7 +22,7 @@ def print_all_joke(username):
     import sqlite3
     global all_joke
     all_joke = {}
-    db_path = "c:/REST - API/db_autoten.db"
+    db_path = "c:/REST - API/joke_database.db"
     con = sqlite3.connect(db_path)
     cur = con.cursor()
     cur.execute("""SELECT * FROM publication""")
@@ -38,7 +38,7 @@ def print_all_joke(username):
 # фунция выводит шутку по ID
 def print_one_joke_by_ID(username, ID):
     import sqlite3
-    db_path = "c:/REST - API/db_autoten.db"
+    db_path = "c:/REST - API/joke_database.db"
     con = sqlite3.connect(db_path)
     cur = con.cursor()
     cur.execute("""SELECT * FROM publication""")
@@ -54,7 +54,7 @@ def print_one_joke_by_ID(username, ID):
 def remove_joke_by_ID(username, ID):
     try:
         import sqlite3
-        db_path = "c:/REST - API/db_autoten.db"
+        db_path = "c:/REST - API/joke_database.db"
         con = sqlite3.connect(db_path)
         cur = con.cursor()
         cur.execute("""SELECT * FROM publication""")
@@ -78,7 +78,7 @@ def get_API(request="https://geek-jokes.sameerkumar.website/api"):
 
 def update_joke(username, joke, id):
     import sqlite3
-    db_path = "c:/REST - API/db_autoten.db"
+    db_path = "c:/REST - API/joke_database.db"
     con = sqlite3.connect(db_path)
     cur = con.cursor()
     cur.execute("""SELECT * FROM publication""")
@@ -99,7 +99,7 @@ def check_username_in_db(username):
     global STATUS_USERNAME
     STATUS_USERNAME = 0
     import sqlite3
-    db_path = "c:/REST - API/db_autoten.db"
+    db_path = "c:/REST - API/joke_database.db"
     con = sqlite3.connect(db_path)
     cur = con.cursor()
     cur.execute("""
@@ -117,7 +117,7 @@ def check_username_and_password_in_db(username, password):
     global STATUS_USERNAME_AND_PASSWORD
     STATUS_USERNAME_AND_PASSWORD = 0
     import sqlite3
-    db_path = "c:/REST - API/db_autoten.db"
+    db_path = "c:/REST - API/joke_database.db"
     con = sqlite3.connect(db_path)
     cur = con.cursor()
     cur.execute("""

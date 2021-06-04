@@ -11,7 +11,7 @@ def register_new_user(username, password):
     global state_counter
     state_counter = 0
     username_data_list = []
-    db_path = "c:/REST - API/db_autoten.db"
+    db_path = "c:/REST - API/joke_database.db"
     con = sqlite3.connect(db_path)
     if username == "":
         print("Error! Вы ничего не ввели!")
